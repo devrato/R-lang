@@ -1,0 +1,20 @@
+---
+title: "Session 1 | R Language"
+author: "Devrato Roy"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Index
+### [1. Why *R*]()
+### [2. Variables And Operators]() 
+### [3. Datatypes in *R*]()
+
+
+```{r cars}
+summary(cars)
+```
+
