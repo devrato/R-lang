@@ -61,7 +61,7 @@ The rich variety of library makes R the first choice for statistical analysis, e
 
 
 ### RStudio Environment 
-![](C:\Users\KIIT\Desktop\Emp\GC\R_files//rStudio_img.jpg)
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files\R-Language//rStudio_img.jpg)
 
 #### Now Check your working directory and then set it accordingly by entering these commands in the console given below.
 
@@ -145,22 +145,40 @@ However, <- is preferred in most cases because the = operator can be forbidden i
 
 x <- 3 is equal to 3 -> x
 
-*<<- is a Global Assigning Operator*
+*<<- is a Global Assigning Operator.*
 
 Arithmetic Operators
-![](C:\Users\KIIT\Desktop\Emp\GC\R_files//arith.jpg)
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files\R-Language//arith.jpg)
 
 ```{r arithmetic}
+x <- 5
+y <- 16
 
+#modulo
+y%%x
+
+#exponent
+y^x
 
 ```
 
 Logical Operators
  
-![](C:\Users\KIIT\Desktop\Emp\GC\R_files//logical.jpg)
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files\R-Language//logical.jpg)
 
 ```{r logical}
+x <- c(TRUE,FALSE,0,6)
+y <- c(FALSE,TRUE,FALSE,TRUE)
 
+!x
+ 
+x&y
+
+x&&y
+
+x|y
+
+x||y
 
 ```
 
