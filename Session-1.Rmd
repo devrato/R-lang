@@ -2,6 +2,7 @@
 title: "Session 1 | R Language"
 author: "Devrato Roy"
 output: html_document
+keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -10,9 +11,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Index
 ### [1. Why *R*]()
-### [2. Variables And Operators]() 
-### [3. Datatypes in *R*]()
+### [2. Setup *R* & *RStudio* on your local machine]()
+### [3. Variables And Operators]() 
+### [4. Datatypes in *R*]()
 
+R is mainly used for statistical analysis while Python provides a more general approach to data science.
+R has now one of the richest ecosystems to perform data analysis.It is possible to find a library for whatever the analysis you want to perform. The rich variety of library makes R the first choice for statistical analysis, especially for specialized analytical work.
 
 ```{r cars}
 summary(cars)
