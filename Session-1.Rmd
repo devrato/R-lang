@@ -1,7 +1,8 @@
 ---
 title: "Session 1 | R Language"
 author: "Devrato Roy"
-output: rmarkdown::github_document
+date: "May 24, 2021"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -9,15 +10,245 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Index
-### [1. Why *R*]()
-### [2. Setup *R* & *RStudio* on your local machine]()
-### [3. Variables And Operators]() 
-### [4. Datatypes in *R*]()
 
+### [1. Intro to *R*]()
+
+### [2. Why *R*]()
+
+### [3. Setup *R* & *RStudio* Environment]()
+
+### [4. Variables And Operators]()
+
+> [4.1 Variables]() 
+
+> [4.2 Arithmetic Operators]()
+
+> [4.3 Logical Operators]()
+
+> [4.4 Conditional Statements]()
+
+### **Intro to *R***
+R was developed by a group of statisticians who wanted an open-source alternative to the costly proprietary options that were (and still are) popular.
+
+Because it was created by statisticians (instead of computer scientists), R has some quirky aspects to it that take some time to get used to.
+
+***
+
+### **Why *R***
 R is mainly used for statistical analysis while Python provides a more general approach to data science.
-R has now one of the richest ecosystems to perform data analysis.It is possible to find a library for whatever the analysis you want to perform. The rich variety of library makes R the first choice for statistical analysis, especially for specialized analytical work.
 
-```{r cars}
-summary(cars)
+R has now one of the richest ecosystems to perform data analysis.It is possible to find a library for whatever the analysis you want to perform. 
+
+The rich variety of library makes R the first choice for statistical analysis, especially for specialized analytical work.
+
+***
+
+### **Setup *R* & *RStudio* on your local machine**
+
+#### For installing R and RStudio head to the links below
+
+> [R Downloadable Link](https://cloud.r-project.org/)
+
+> [RStudio Downloadable Link](https://www.rstudio.com/products/rstudio/)
+
+#### Or Setup Using Anaconda 
+
+##### Go ahead and enter these commands into your Anaconda Prompt & We'll be good to go.
+
+> conda install r-essentials --yes
+
+> conda install -c r rstudio --yes
+
+
+### RStudio Environment 
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files//rStudio_img.jpg)
+
+#### Now Check your working directory and then set it accordingly by entering these commands in the console given below.
+
+> getwd('Current Location')
+
+> setwd('Desired location')
+
+***
+
+### **Basics Of *R***
+
+##### Data Types in R
+
+So R has basically 4 data types :
+
+* numeric: R by default stores a number as a double be it integer or decimal.To determine  a integer explicitly one has to put an *L* at the end of the number.
+
+* character: a.k.a the string values could be anything inside "".
+
+* complex: It is to store complex numbers in the form of a + b(i).
+
+* Boolean: It can be either TRUE / FALSE.
+
+```{r}
+
+typeof(123)
+
+typeof(123L)
+
+typeof('Hello World')
+
+typeof(2+3i)
+
 ```
+
+
+*Indexing in R starts from 1 whereas in python it starts from 0.*
+
+##### Variables
+
+Rules for naming a variable in R:
+
+* A variable name must start with a letter and can be a combination of letters, digits, period(.)and underscore(_). 
+
+* If it starts with period(.), it cannot be followed by a digit.
+
+```{r variables}
+
+first_var <- 123
+
+second_var <- 234
+
+sum <- first_var + second_var
+
+print(sum)
+
+```
+##### Concatenation
+
+For concateneation of two strings we use paste() function.
+
+```{r concatenate}
+
+char_a <- 'Hello'
+char_b <- 'World'
+
+char_a
+
+char_b
+
+char_c <- paste(char_a, char_b)
+char_c
+
+```
+
+##### Operators
+
+In other programming language, it is common to use = as an assignment operator. In R, we can use both = and <- as assignment operators.
+
+However, <- is preferred in most cases because the = operator can be forbidden in some context in R.
+
+x <- 3 is equal to 3 -> x
+
+*<<- is a Global Assigning Operator*
+
+Arithmetic Operators
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files//arith.jpg)
+
+```{r arithmetic}
+
+
+```
+
+Logical Operators
+ 
+![](C:\Users\KIIT\Desktop\Emp\GC\R_files//logical.jpg)
+
+```{r logical}
+
+
+```
+
+Math Functions 
+
+Basic math functions like max(), min(), sqrt() etc.
+```{r math}
+max(5, 10, 15)
+
+min(5, 10, 15)
+
+#returns square root
+sqrt(225)
+
+#returns the absolute value of a number
+abs(-4.7)
+
+#rounds a number to its upwards integer
+ceiling(1.4)
+
+#rounds a number to its downwards integer
+floor(1.4)
+
+```
+
+##### Loops 
+
+###### while loops syntax
+
+```{r while}
+
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+}
+
+```
+
+###### for loops syntax 
+
+```{r for}
+
+for (x in 1:10) {
+  print(x)
+}
+
+```
+
+
+##### Conditional Statements
+
+* Nested If statements
+```{r conditional}
+x <- rnorm(1)
+
+if (x > 1) {
+  print("")
+  if (x > 20) {
+    print("and also above 20!")
+  } else {
+    print("but not above 20.")
+  }
+} else {
+  print("below 10.")
+}
+
+```
+
+* Else-if Statements 
+```{r conditional_1}
+x <- rnorm(1)
+
+if(x>1){
+ ans <- 'Greater than 1' 
+}else if(x >= -1){
+  ans <- 'Between -1 & 1'
+}else{
+  ans <- 'Less than 1'
+}
+
+print(x)  
+print(ans)
+
+
+```
+
+##### In the above examples, we use conditinal statements to group the randomly generated number x (the rnorm function is similar to the random() fxn in python).
+
+
 
