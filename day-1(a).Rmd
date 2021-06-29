@@ -1,0 +1,92 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+
+a <- rnorm(5)
+
+# install.packages('dplyr')
+
+library(dplyr)
+
+library(ggplot2)
+
+?dplyr
+
+?qplot
+
+?diamonds
+
+qplot(data = diamonds, carat, price, colour=clarity, facets=.~clarity)
+
+```
+```{r}
+x <- rnorm(5)
+x
+
+for (i in x){
+  print(i)
+}
+
+N <- 100
+
+a <- rnorm(N)
+b <- rnorm(N)
+
+c <- a*b
+
+d <- rep(NA, N)
+
+for (i in 1:N){
+  d[i] <- a[i] * b[i]
+}
+
+# N <- 100
+# 
+# count <- 0
+# 
+# for (i in rnorm(N)){
+#   if ( %>% la&){
+#     count <- count + 1
+#   }
+# }
+# 
+# res <- count/N
+# res
+```
+
+```{r}
+# x <- 5
+
+# 1:15
+# x <- c(1:5)
+# a <- c(1:2, x)
+# print(a)
+
+# seq(1, 20, 2)
+
+# ?rep
+?c
+# ?seq
+
+# y <- (readline(prompt = "Enter your name: "))
+# 
+# z <- (readline(prompt = "age:"))
+# num1 <- 5 
+# num2 <- 6
+# sum <- function(num1, num2){
+#   print(num1+num2)
+# }
+# 
+# sum(num1, num2)
+
+install.packages('dplyr')
+
+library(dplyr)
+
+?dplyr
+
+```
+
+
