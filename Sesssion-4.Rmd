@@ -2,6 +2,12 @@
 title: "R Notebook"
 output: html_notebook
 ---
+Analyse the dataset using scatterplots.
+Produce a scatterplot illustrating Birth Rate and Internet Usage
+statistics by Income Groups.
+
+Now 
+
 ```{r Input-data}
 ?read.csv
 
@@ -50,32 +56,77 @@ data[c(5,143),]
 data[2, ]
 data[ ,2, drop=F]
 
+head(data)
+
+#operations
+data$Birth.rate + data$Internet.users
+data$Birth.rate * data$Internet.users
+data$Birth.rate / data$Internet.users
+
+#adding rows
+data$value <- data$Birth.rate * data$Internet.users
+data
+
+data$test <- 1:5
+data
+
+#removing columns
+data$test <- NULL
+
 ```
 
 
 ```{r filter-df}
+#filtering columns or rows
+filter <- data$Internet.users < 2
 
+data[data$Internet.users < 2, ]
+data[data$Birth.rate > 40 & data$Internet.users < 2,  ]
+
+data[data$Country.Name == "Malta",]
+
+```
+
+```{r df-merge}
+
+df <- data.frame(Country=Countries_2012_Dataset, Region=Regions_2012_Dataset, Codes=Codes_2012_Dataset)
+head(df,4)
+summary(df)
+ 
+
+merged.df <- merge(data, df, by.x = "Country.Code", by.y = "Codes")
+
+merged.df$Country.Name <- NULL
 
 ```
 
 
-```{r}
-install.packages('ggplot2')
+```{r qplot}
+#install.packages('ggplot2')
 
 library(ggplot2)
 
+?qplot
+
 qplot(data=data, x=Internet.users)
+
+qplot(data=data, x=Income.Group, y=Birth.rate, size=I(5), color=I("red"))
 
 qplot(data=data, x=Income.Group, y=Birth.rate, size=I(5), color=I("red"))
 
 qplot(data=data, x=Income.Group, y=Birth.rate, geom="boxplot")
 
 
-
 ```
 
 ```{r}
+
+qplot(data=data, x=Internet.users, y=Birth.rate, size=I(3), color=I("blue"))
+
 qplot(data=data, x=Internet.users, y=Birth.rate, size=I(2), color=Income.Group)
+
+qplot(data=merged.df, x=Internet.users, y=Birth.rate, color=Region, size=I(4))
+
 ```
 
 

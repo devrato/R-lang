@@ -2,7 +2,7 @@
 df <- data.frame(Country=Countries_2012_Dataset, Region=Regions_2012_Dataset, Codes=Codes_2012_Dataset)
 head(df,4)
 summary(df)
- 
+
 
 merged.df <- merge(data, df, by.x = "Country.Code", by.y = "Codes")
 
