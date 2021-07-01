@@ -2,7 +2,7 @@
 title: "R Notebook"
 output: html_notebook
 ---
-```{r}
+```{r Input-data}
 ?read.csv
 
 #input data in workspace as a df
@@ -20,32 +20,47 @@ ncol(data)
 head(data)
 tail(data)
 
+#describe the data
+str(data)
+summary(data)
+
 ```
 
-```{r}
+```{r Indexing-df}
 
 #indexing dataframes
 
+data[3,3]
 data[3,"Birth.rate"]
+
 
 data$Internet.users
 data[ ,"Internet.users"]
 
 data$Internet.users[2]
-
-?levels
-(data$Income.Group)
+data[2,"Internet.users"]
 
 
+data[1:10, ]
+data[,1:2]
 
-str(data)
-summary(data)
+data[c(5,143),]
 
-rm(a)
+#drop
+data[2, ]
+data[ ,2, drop=F]
 
 ```
 
+
+```{r filter-df}
+
+
+```
+
+
 ```{r}
+install.packages('ggplot2')
 
 library(ggplot2)
 
