@@ -2,11 +2,14 @@
 title: "R Notebook"
 output: html_notebook
 ---
-Analyse the dataset using scatterplots.
+Demographic analysis.
+
+You are required to analyse the dataset using scatterplots.
 Produce a scatterplot illustrating Birth Rate and Internet Usage
 statistics by Income Groups.
 
-Now 
+Also you have to produce a scatterplot categorised by countries regions.
+For which you have been provided with the second vector formatted dataset.
 
 ```{r Input-data}
 ?read.csv
@@ -14,9 +17,12 @@ Now
 #input data in workspace as a df
 data <- read.csv(file.choose())
 
-data <- read.csv("P2-Demographic-Data.csv")
+data <- read.csv("C:\\Users\\KIIT\\Desktop\\Emp\\GC\\R_files\\R-Language
+                 \\P2-Demographic-Data.csv")
+# getwd()
+# setwd()
 
-data <- read.csv("C:\\Users\\KIIT\\Desktop\\Emp\\GC\\R_files\\R-Language\\P2-Demographic-Data.csv")
+data <- read.csv("P2-Demographic-Data.csv")
 
 data
 
@@ -27,7 +33,10 @@ head(data)
 tail(data)
 
 #describe the data
+?str
 str(data)
+
+?summary
 summary(data)
 
 ```
@@ -39,6 +48,7 @@ summary(data)
 data[3,3]
 data[3,"Birth.rate"]
 
+data$Country.Name
 
 data$Internet.users
 data[ ,"Internet.users"]
@@ -50,7 +60,7 @@ data[2,"Internet.users"]
 data[1:10, ]
 data[,1:2]
 
-data[c(5,143),]
+data[c(5,143,55),]
 
 #drop
 data[2, ]
@@ -67,11 +77,14 @@ data$Birth.rate / data$Internet.users
 data$value <- data$Birth.rate * data$Internet.users
 data
 
-data$test <- 1:5
+data$test <- 1:15
 data
 
 #removing columns
 data$test <- NULL
+
+data$value <- NULL
+data
 
 ```
 
@@ -79,30 +92,34 @@ data$test <- NULL
 ```{r filter-df}
 #filtering columns or rows
 filter <- data$Internet.users < 2
+data$Internet.users < 2
 
 data[data$Internet.users < 2, ]
+
 data[data$Birth.rate > 40 & data$Internet.users < 2,  ]
 
-data[data$Country.Name == "Malta",]
+data[data$Country.Name == "Niger",]
 
 ```
 
 ```{r df-merge}
 
 df <- data.frame(Country=Countries_2012_Dataset, Region=Regions_2012_Dataset, Codes=Codes_2012_Dataset)
+
 head(df,4)
 summary(df)
- 
 
 merged.df <- merge(data, df, by.x = "Country.Code", by.y = "Codes")
 
 merged.df$Country.Name <- NULL
 
+head(merged.df)
+
 ```
 
-
 ```{r qplot}
-#install.packages('ggplot2')
+
+# install.packages('ggplot2')
 
 library(ggplot2)
 
@@ -110,16 +127,17 @@ library(ggplot2)
 
 qplot(data=data, x=Internet.users)
 
-qplot(data=data, x=Income.Group, y=Birth.rate, size=I(5), color=I("red"))
+qplot(data=data, x=Income.Group, y=Birth.rate)
 
-qplot(data=data, x=Income.Group, y=Birth.rate, size=I(5), color=I("red"))
+qplot(data=data, x=Income.Group, y=Birth.rate, size=I(3), color=I('red'))
 
+# qplot(data=data, x=Income.Group, y=Birth.rate, size=I(5), color=I("red"))
+# 
 qplot(data=data, x=Income.Group, y=Birth.rate, geom="boxplot")
-
 
 ```
 
-```{r}
+```{r question}
 
 qplot(data=data, x=Internet.users, y=Birth.rate, size=I(3), color=I("blue"))
 
